@@ -14,7 +14,7 @@ export class YnaacController {
       return { success: true }
     } catch (e) {
       console.error(e)
-      return { success: false, error: e }
+      return { success: false, error: e.message }
     }
   }
 }

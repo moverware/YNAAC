@@ -11,6 +11,7 @@ import { YnabController } from './ynab.controller'
         YNAB_ACCESS_TOKEN: Joi.string().required(),
         YNAB_BUDGET_ID: Joi.string(),
         YNAB_ACCOUNT_ID: Joi.string(),
+        PASSWORD: Joi.string(),
       }),
     }),
   ],

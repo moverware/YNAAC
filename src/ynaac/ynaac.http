@@ -6,6 +6,7 @@ Content-Type: application/json
 {
   "date": "2024-01-25", 
   "amount": -1000, 
-  "payee_name": "Example Payee" 
+  "payee_name": "Example Payee",
+  "password": "1234"
 }
 
