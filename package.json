@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "cross-env GOOGLE_APPLICATION_CREDENTIALS=./.devcredentials.json nest start",
+    "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -21,14 +21,16 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@google-cloud/firestore": "^7.2.0",
     "@nestjs/common": "^10.3.1",
+    "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.3.1",
     "@nestjs/platform-express": "^10.3.1",
+    "joi": "^17.12.0",
     "object-hash": "^3.0.0",
-    "reflect-metadata": "^0.2.1",
+    "reflect-metadata": "^0.1.12",
     "rimraf": "^5.0.5",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "ynab": "^2.2.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.3.0",

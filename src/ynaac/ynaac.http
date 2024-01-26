@@ -1,0 +1,11 @@
+@baseurl = http://localhost:3000
+
+POST {{baseurl}}/ynaac/processTransaction
+Content-Type: application/json
+
+{
+  "date": "2024-01-25", 
+  "amount": -1000, 
+  "payee_name": "Example Payee" 
+}
+

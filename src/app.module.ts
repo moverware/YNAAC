@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common'
-import { FirestoreModule } from './firestore/firestore.module'
-import { LoginModule } from './login/login.module'
-
+import { YnabModule } from './ynab/ynab.module'
+import { YnaacModule } from './ynaac/ynaac.module'
 @Module({
-  imports: [LoginModule, FirestoreModule.register()],
+  imports: [YnabModule, YnaacModule],
 })
 export class AppModule {}

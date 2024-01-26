@@ -1,43 +1,43 @@
-# Nest Typescript Firestore Starter
+# You Need An Apple Card
 
-`npm i`
+An API endpoint that receives transactions (via iOS Transaction Shortcuts) and
+posts them to you YNAB Apple Card account.
 
-## GCP CLI
+## YNAB API Key
 
-1. Install gcloud: <https://cloud.google.com/sdk/docs/install>
-2. Run `gcloud auth login` and sign in with your browser
+Go here: <https://app.ynab.com/settings/developer>
 
-## Firestore
-
-### GCP Setup
-
-1. Enable Firestore for your gcp project. Use Native mode
-2. Create a collection (subsequent ones can be created via code)
-3. Add your `projectId` to the `defaultOptions` in `src/firestore/firestore.module.ts`
-
-### Create dev service account
-
-1. Go to <https://console.cloud.google.com/iam-admin/serviceaccounts>, and hit `Create Service Account`
-2. Set your service account name & to Service account ID to `<your name>-dev`
-3. For `Select a role` choose `Basic -> Owner`
-4. Select Done
-
-### Download your credentials
-
-1. After your service account is created, select `Actions -> Manage Keys` (on this page <https://console.cloud.google.com/iam-admin/serviceaccounts>)
-2. Hit `Add Key -> Create new key -> JSON`
-3. Your credentials will have downloaded. Rename them to `.devcredentials.json` and move to the root of this repo
+Generate a new key and set the environment variable `YNAB_API_KEY` to the value.
+This can be done via a `.env` file in the root of the project or env vars in a
+docker container.
 
 ## Start
 
 Run `yarn start`
 
+## Finding your Budget ID & Account ID
+
+Run the project locally and navigate to `src/ynab/ynab.http`. You can click run
+(assuming you have the VSCode REST Client extension installed) and it will
+return a list of your budgets and accounts.
+Alternatively, you can use Postman etc to make the request locally.
+
+Once you have your budget ID and account ID, set the environment variables
+`YNAB_BUDGET_ID` and `YNAB_ACCOUNT_ID` to the values (again via `.env` or env
+vars in docker container).
+
 ## Docker
+
+I recommend using Docker to run this project. You can build and run the image
+somewhere permanently (e.g. GCP Cloud Run) and then use the iOS Shortcuts app to
+send transactions to the endpoint.
 
 ### Install
 
 1. Install Docker Desktop
-2. Run `gcloud auth configure-docker`
+2. Install gcloud: <https://cloud.google.com/sdk/docs/install>
+3. Run `gcloud auth login` and sign in with your browser
+4. Run `gcloud auth configure-docker`
 
 ### GCP
 
